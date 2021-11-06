@@ -1,0 +1,12 @@
+<template>
+	<section class="Layout">
+		<slot />
+	</section>
+</template>
+
+<style scoped>
+	.Layout {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+</style>

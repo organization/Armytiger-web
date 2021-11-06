@@ -1,0 +1,59 @@
+{
+	"extends": [
+		"eslint:recommended",
+		"plugin:vue/vue3-recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:@typescript-eslint/recommended-requiring-type-checking"
+	],
+	"plugins": [
+		"@typescript-eslint",
+		"import",
+		"vue"
+	],
+	"settings": {
+		"import/resolver": {
+			"typescript": {}
+		}
+	},
+	"parser": "vue-eslint-parser",
+	"parserOptions": {
+		"parser": "@typescript-eslint/parser",
+		"sourceType": "module",
+		"ecmaVersion": 13,
+		"project": "./tsconfig.json",
+		"tsconfigRootDir": "./",
+		"extraFileExtensions": [ ".vue" ]
+	},
+	"rules": {
+		"@typescript-eslint/comma-dangle": [ "error", "never" ],
+		"@typescript-eslint/explicit-module-boundary-types": "off",
+		"@typescript-eslint/quotes": [ "error", "single" ],
+		"array-bracket-spacing": [ "error", "always" ],
+		"comma-dangle": [ "error", "never" ],
+		"indent": [ "error", "tab" ],
+		"import/extensions": [
+			"error",
+			"ignorePackages",
+			{
+				"js": "never",
+				"ts": "never"
+			}
+		],
+		"no-empty": [ "error", { "allowEmptyCatch": true } ],
+		"quotes": [ "error", "single" ],
+		"semi": [ "error", "always" ],
+		"template-curly-spacing": [ "error", "always" ],
+		"vue/component-tags-order": [ "error", { "order": [ "template", "style", "script" ] } ],
+		"vue/html-indent": [ "error", "tab", { "baseIndent": 1, "attribute": 1, "closeBracket": 0 } ],
+		"vue/script-indent": [ "error", "tab", { "baseIndent": 1 } ],
+		"vue/template-curly-spacing": [ "error", "always" ]
+	},
+	"overrides": [
+		{
+			"files": [ "*.vue" ],
+			"rules": {
+				"indent": "off"
+			}
+		}
+	]
+}
