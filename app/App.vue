@@ -3,8 +3,12 @@
 </template>
 
 <style>
-	@import '@/styles/reset.css';
-	@import '@/styles/theme.css';
+	@import '@/styles/reset.less';
+	@import '@/styles/color.less';
+
+	body {
+		background: var(--color-grey800);
+	}
 </style>
 
 <script setup lang="ts">

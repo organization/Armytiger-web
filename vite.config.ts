@@ -14,5 +14,13 @@ export default defineConfig({
 	resolve: {
 		alias: { '@': path.resolve(__dirname, 'app') },
 		extensions: ['.js', '.ts']
+	},
+
+	css: {
+		preprocessorOptions: {
+			less: {
+				additionalData: '@import "@/styles/mixins.less";'
+			}
+		}
 	}
 });

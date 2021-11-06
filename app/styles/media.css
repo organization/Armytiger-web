@@ -1,2 +1,0 @@
-@custom-media --media-below-desktop (width < 900px);
-@custom-media --media-over-desktop (width >= 900px);
