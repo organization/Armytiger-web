@@ -3,6 +3,7 @@
 		<WriteHeader />
 		<WriteCounter />
 		<WriteQuestions />
+		<WriteForm />
 	</LayoutContainer>
 </template>
 
@@ -30,6 +31,7 @@
 <script lang="ts" setup>
 	import { LayoutContainer } from '@/components/common/Layout';
 	import { WriteCounter } from '@/components/write/WriteCounter';
+	import { WriteForm } from '@/components/write/WriteForm';
 	import { WriteHeader } from '@/components/write/WriteHeader';
 	import { WriteQuestions } from '@/components/write/WriteQuestions';
 	import { onMounted } from 'vue';

@@ -1,5 +1,5 @@
 <template>
-	<div class="SkeletonText" :class="`SkeletonText--${textStyle}`" :style="{ width: `${width}px` }" />
+	<div class="Skeleton SkeletonText" :class="`SkeletonText--${textStyle}`" :style="{ width: `${width}px` }" />
 </template>
 
 <style lang="less" scoped>
@@ -22,10 +22,6 @@
 			height: @text-style-size;
 			margin: ((@text-style-lineheight - @text-style-size) / 2) 0;
 		}
-	}
-
-	.SkeletonText {
-		.Skeleton();
 	}
 
 	.SkeletonTextStyle(@text-styles-length);

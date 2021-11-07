@@ -3,8 +3,7 @@
 </template>
 
 <style>
-	@import '@/styles/reset.less';
-	@import '@/styles/color.less';
+	@import '@/styles/theme.less';
 
 	body {
 		background: var(--color-grey800);
