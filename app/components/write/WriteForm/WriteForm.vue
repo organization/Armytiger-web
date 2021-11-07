@@ -7,6 +7,9 @@
 			<InputSingleline v-model="sender" name="sender" placeholder="보내는 이" :assitable="false" />
 			<InputMultiline v-model="content" name="content" placeholder="내용" />
 			<InputSingleline v-model="replyAddress" name="replyAddress" placeholder="답장 받을 주소 (선택사항)" />
+			<ButtonCallToAction class="FormButton">
+				이대로 보낼게요 <ArrowRight class="FormButton__icon" />
+			</ButtonCallToAction>
 		</form>
 	</section>
 </template>
@@ -25,18 +28,43 @@
 		}
 
 		&__form {
+			margin-top: 32px;
+
 			display: flex;
 			flex-direction: column;
+			align-items: flex-start;
 
 			& > * {
 				margin: 10px 0;
+			}
+
+			& > [name="replyAddress"] {
+				align-self: stretch;
+			}
+		}
+	}
+
+	.FormButton {
+		align-self: flex-end;
+		margin-top: 22px;
+
+		&__icon {
+			margin-left: 8px;
+			transition: transform var(--transition);
+		}
+
+		&:hover & {
+			&__icon {
+				transform: translate(2px);
 			}
 		}
 	}
 </style>
 
 <script lang="ts" setup>
+	import ArrowRight from '@/images/ArrowRight.svg?component';
 	import { ref } from 'vue';
+	import { ButtonCallToAction } from '@/components/common/Button';
 	import { InputMultiline, InputSingleline } from '@/components/common/Input';
 
 	const sender = ref('');

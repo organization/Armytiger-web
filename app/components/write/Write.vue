@@ -4,6 +4,10 @@
 		<WriteCounter />
 		<WriteQuestions />
 		<WriteForm />
+
+		<span class="Write__thanks">
+			감사합니다!
+		</span>
 	</LayoutContainer>
 </template>
 
@@ -24,6 +28,14 @@
 					margin-bottom: 0;
 				}
 			}
+		}
+
+		&__thanks {
+			.font-figure();
+			text-align: center;
+			color: var(--color-grey100);
+			opacity: .3;
+			margin-top: 75px;
 		}
 	}
 </style>

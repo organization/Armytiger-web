@@ -1,5 +1,5 @@
 <template>
-	<div class="Skeleton SkeletonText" :class="`SkeletonText--${textStyle}`" :style="{ width: `${width}px` }" />
+	<div class="SkeletonText" :class="`SkeletonText--${textStyle}`" :style="{ width: `${width}px` }" />
 </template>
 
 <style lang="less" scoped>
@@ -25,6 +25,9 @@
 	}
 
 	.SkeletonTextStyle(@text-styles-length);
+	.SkeletonText {
+		.Skeleton();
+	}
 </style>
 
 <script lang="ts" setup>

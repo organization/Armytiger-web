@@ -1,4 +1,4 @@
-.Input {
+.Input() {
 	.font-ui();
 	color: var(--color-grey100);
 
@@ -8,23 +8,26 @@
 	&__input {
 		.font-content();
 
-		padding: 16px 20px;
+		width: 100%;
+		padding: 20px 20px;
+		padding-bottom: 12px;
 		background: var(--color-grey900);
 		border: 1px solid var(--color-grey700);
-		border-radius: 5px;
+		border-radius: @radius-400;
 		box-shadow: var(--shadow-inner400);
+		transition: border-color var(--transition);
 
 		&::placeholder {
 			.font-ui();
 
 			color: var(--color-grey500);
 			transition: all var(--transition);
+			transform: translate(0, -4px);
 			transform-origin: center left;
 		}
 
-		&:focus::placeholder {
-			opacity: 0;
-			transform: translate(0, -18px) scale(.7);
+		&:focus {
+			border-color: var(--color-theme400);
 		}
 	}
 
@@ -32,7 +35,7 @@
 		.font-ui();
 
 		position: absolute;
-		top: 16px;
+		top: 20px;
 		left: 20px;
 
 		opacity: 0;
@@ -40,8 +43,15 @@
 		transform-origin: center left;
 	}
 
-	&__input:focus + &__label {
-		opacity: 1;
-		transform: translate(0, -18px) scale(.7);
+	&__input:focus, &:not(&--empty) &__input {
+		&::placeholder {
+			opacity: 0;
+			transform: translate(1px, -18px) scale(.6);
+		}
+	}
+
+	&__input:focus + &__label, &:not(&--empty) &__label {
+		opacity: 0.3;
+		transform: translate(1px, -18px) scale(.6);
 	}
 }

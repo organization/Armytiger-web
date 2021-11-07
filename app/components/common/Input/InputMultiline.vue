@@ -1,17 +1,22 @@
 <template>
-	<label class="Input InputMultiline">
+	<label
+		class="InputMultiline"
+		:class="{ 'InputMultiline--empty': !modelValue }"
+		:style="{ height, minHeight: `${minHeight}px` }"
+	>
 		<textarea
-			class="Input__input"
+			class="InputMultiline__input"
 			:placeholder="placeholder"
 			:autocomplete="assitable ? 'on' : 'off'"
 			:autocorrect="assitable ? 'on' : 'off'"
 			:autocapitalize="assitable ? 'on' : 'off'"
 			:spellcheck="assitable ? 'true' : 'false'"
-			:value="value"
-			@input="$emit('update:value', $event)"
+			:value="modelValue"
+			ref="textArea"
+			@input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
 		/>
 
-		<span class="Input__label">{{ placeholder }}</span>
+		<span class="InputMultiline__label">{{ placeholder }}</span>
 	</label>
 </template>
 
@@ -19,19 +24,49 @@
 	@import './Input.styles.less';
 
 	.InputMultiline {
+		.Input();
 		align-self: stretch;
+
+		height: initial;
+		overflow: hidden;
+
+		&__input {
+			width: 100%;
+			resize: none;
+			overflow: hidden;
+		}
 	}
 </style>
 
 <script lang="ts" setup>
-	withDefaults(defineProps<{
-		assitable?: boolean,
+	import { nextTick, ref, watch } from 'vue';
+
+	const textArea = ref<HTMLTextAreaElement | null>(null);
+	const height = ref('auto');
+	const props = withDefaults(defineProps<{
 		placeholder: string,
-		value: string
+		assitable?: boolean,
+		minHeight?: number,
+		modelValue: string
 	}>(), {
-		type: 'text',
-		assitable: false
+		assitable: false,
+		minHeight: 300
 	});
 
-	defineEmits(['update:value']);
+	watch(
+		() => props.modelValue,
+		async () => {
+			const inputElem = textArea.value;
+			if (!inputElem) {
+				return;
+			}
+
+			height.value = 'auto';
+
+			await nextTick();
+			height.value = `${inputElem.scrollHeight}px`;
+		}
+	);
+
+	defineEmits(['update:modelValue']);
 </script>

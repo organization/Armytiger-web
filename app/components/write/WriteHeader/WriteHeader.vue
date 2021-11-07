@@ -6,7 +6,7 @@
 		</header>
 
 		<p class="Header__description" v-if="isFinished">
-			{{ recipient.name }} 훈련병에게 인편을 작성해주세요!<br />
+			{{ recipient?.name }} 훈련병에게 인편을 작성해주세요!<br />
 			아무런 말이라도, 단 한줄만이라도 좋으니 보내주시면 소중히 읽겠습니다!
 		</p>
 		<template v-else>
