@@ -14,7 +14,7 @@
 	.CardRow {
 		background: var(--color-grey900);
 		color: var(--color-grey100);
-		border-radius: @radius-400;
+		border-radius: @border_radius-400;
 		padding: 10px;
 
 		display: flex;

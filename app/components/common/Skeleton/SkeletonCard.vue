@@ -9,6 +9,6 @@
 		.Skeleton();
 
 		height: 150px;
-		border-radius: @radius-400;
+		border-radius: @border_radius-400;
 	}
 </style>

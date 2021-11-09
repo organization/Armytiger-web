@@ -13,11 +13,11 @@
 		position: relative;
 
 		background: var(--color-grey900);
-		border: 1px solid var(--color-theme400);
-		border-radius: @radius-400;
+		border: @border_width-400 solid var(--color-theme400);
+		border-radius: @border_radius-400;
 		box-shadow: var(--shadow-outer400);
 		cursor: pointer;
-		transition: background var(--transition);
+		transition: all var(--transition);
 
 		.font-ui();
 		color: var(--color-grey100);
@@ -33,7 +33,7 @@
 			bottom: 0;
 
 			background: linear-gradient(97deg, #3B58ED 13.55%, #3BBEF5 82.22%);
-			border-radius: @radius-400;
+			border-radius: @border_radius-400;
 			filter: blur(20px);
 			z-index: -1;
 
@@ -42,7 +42,9 @@
 		}
 
 		&:hover {
-			background: var(--color-grey875);
+			background: var(--color-theme400);
+			color: white;
+			border-color: white;
 
 			&::before {
 				transform: scale(1);
