@@ -4,7 +4,7 @@
 
 		<div class="Questions__cards">
 			<template v-if="isFinished">
-				<CardRow v-for="question in recipient.commonQuestions">
+				<CardRow v-for="question in recipient!.commonQuestions">
 					<template #title>
 						<div class="Questions__question">
 							<div class="Questions__content">
@@ -21,7 +21,7 @@
 				</CardRow>
 			</template>
 			<template v-else>
-				<SkeletonCard v-for="n in 5" />
+				<SkeletonCard v-for="_n in 5" />
 			</template>
 		</div>
 	</section>

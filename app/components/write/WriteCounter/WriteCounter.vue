@@ -4,7 +4,7 @@
 
 		<p class="Counter__content">
 			<template v-if="isFinished">
-
+				<CounterSet class="Counter__counter" :target="recipient!.dischargeAt" />
 				<span class="Counter__after">
 					후에 제가 사회로 다시 복귀합니다
 				</span>
@@ -28,10 +28,14 @@
 
 		&__content {
 			display: flex;
-			align-items: center;
+			align-items: baseline;
 
 			.font-content();
 			color: var(--color-grey100);
+		}
+
+		&__counter {
+			margin-right: 6px;
 		}
 
 		&__figure {
@@ -46,6 +50,7 @@
 </style>
 
 <script lang="ts" setup>
+	import { CounterSet } from '@/components/common/Counter';
 	import { SkeletonText } from '@/components/common/Skeleton';
 	import { toRefs } from 'vue';
 	import { useRecipientStore } from '@/stores/recipient';
